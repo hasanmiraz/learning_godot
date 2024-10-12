@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://bgv0vitnfkd42"]
+[gd_scene load_steps=3 format=3 uid="uid://bgv0vitnfkd42"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_yr0hm"]
+
+[sub_resource type="GDScript" id="GDScript_41wyn"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_yr0hm")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 27.0
+offset_top = 18.0
+offset_right = 133.0
+offset_bottom = 69.0
+tooltip_text = "Start Playing"
+text = "Play"
+script = SubResource("GDScript_41wyn")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 93.0
+offset_right = 135.0
+offset_bottom = 144.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
